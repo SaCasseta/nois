@@ -19,7 +19,7 @@ public class ProfessorService {
         Professor professor = new Professor();
         professor.setNome(professorDto.getNome());
         professor.setEmail(professorDto.getEmail());
-        professor.setSenha(professorDto.getSenha()); // Considere criptografar a senha aqui
+        professor.setSenha(professorDto.getSenha());
         Professor savedProfessor = professorRepository.save(professor);
         return toDto(savedProfessor);
     }
@@ -42,7 +42,7 @@ public class ProfessorService {
                 .orElseThrow(() -> new RuntimeException("Professor não encontrado com ID: " + id));
         professor.setNome(professorDto.getNome());
         professor.setEmail(professorDto.getEmail());
-        professor.setSenha(professorDto.getSenha()); // Considere criptografar a senha aqui
+        professor.setSenha(professorDto.getSenha());
         Professor updatedProfessor = professorRepository.save(professor);
         return toDto(updatedProfessor);
     }
@@ -58,7 +58,7 @@ public class ProfessorService {
         dto.setId(professor.getId());
         dto.setNome(professor.getNome());
         dto.setEmail(professor.getEmail());
-        dto.setSenha(professor.getSenha()); // Considere não retornar a senha em APIs públicas
+        dto.setSenha(professor.getSenha());
         return dto;
     }
 }

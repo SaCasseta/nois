@@ -51,7 +51,6 @@ public class TurmaService {
 
     private TurmaDto toDto(Turma turma) {
         TurmaDto dto = new TurmaDto();
-        dto.setId(turma.getId());
         dto.setNome(turma.getNome());
         return dto;
     }
