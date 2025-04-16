@@ -17,6 +17,12 @@ public class ProfessorController {
     @Autowired
     private ProfessorService professorService;
 
+    @PostMapping("/verify")
+    public ResponseEntity<String> verifyCredentials(@Valid @RequestBody ProfessorDto professorDto) {
+        boolean isValid = professorService.verifyCredentials(professorDto.getEmail(), professorDto.getSenha());
+        return ResponseEntity.ok(isValid ? "Credenciais válidas" : "Credenciais inválidas");
+    }
+
     @PostMapping
     public ResponseEntity<ProfessorDto> createProfessor(@Valid @RequestBody ProfessorDto professorDto) {
         ProfessorDto createdProfessor = professorService.createProfessor(professorDto);

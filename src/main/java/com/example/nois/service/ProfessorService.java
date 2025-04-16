@@ -61,4 +61,9 @@ public class ProfessorService {
         dto.setSenha(professor.getSenha());
         return dto;
     }
+
+
+    public boolean verifyCredentials(String email, String senha) {
+        return professorRepository.findByEmailAndSenha(email, senha).isPresent();
+    }
 }
